@@ -6,10 +6,12 @@ public class UserDTO {
 
     private Long id;
     private String email;
+    private String password;
 
     public UserDTO(User user) {
         id = user.getId();
         email = user.getEmail();
+        password = user.getPassword();
     }
 
     public Long getId() {
@@ -18,5 +20,9 @@ public class UserDTO {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
