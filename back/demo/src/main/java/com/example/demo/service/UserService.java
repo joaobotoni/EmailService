@@ -23,13 +23,22 @@ public class UserService {
         return user.stream().map(UserDTO::new).toList();
     }
 
-    public User findUserById(Long id) {
-        return repository.findById(id).get();
+    public UserDTO findUserById(Long id) {
+        var user = repository.findById(id).get();
+        return new UserDTO(user);
     }
 
-    public void sendEmail(User user, String to, String subject, String text, String host, String password) {
-        var userByEmail = user.getEmail();
-        var userByPassword = user.getPassword();
+    private String getDomainFromEmail(String email) {
+        if (email != null && email.contains("@")) {
+            return email.substring(email.indexOf("@") + 1);
+        }
+        throw new IllegalArgumentException("E-mail inválido");
+    }
+
+    public void sendEmail(UserDTO user, String to, String subject, String text, String host, String password) {
+        String userByEmail = user.getEmail();
+        String userByPassword = user.getPassword();
+        String userByHost = getDomainFromEmail(userByEmail);
 
         JavaMailSenderImpl mailSender = emailService.mailSend(host, userByEmail, userByPassword);
         SimpleMailMessage message = new SimpleMailMessage();

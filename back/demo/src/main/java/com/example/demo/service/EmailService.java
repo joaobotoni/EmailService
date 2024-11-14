@@ -11,6 +11,7 @@ public class EmailService {
     @Value("${spring.mail.port}")
     private int port;
 
+
     public JavaMailSenderImpl mailSend(String host, String username, String password){
         JavaMailSenderImpl mail = new JavaMailSenderImpl();
         mail.setHost(host);
