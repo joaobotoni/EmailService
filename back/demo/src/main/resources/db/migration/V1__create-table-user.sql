@@ -1,6 +1,6 @@
 CREATE TABLE usuario(
 id SERIAL PRIMARY KEY NOT NULL,
-name varchar(100) NOT NULL,
-email varchar(100) NOT NULL,
-password varchar(10) NOT null
+name VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
+password VARCHAR(10) NOT null
 )
