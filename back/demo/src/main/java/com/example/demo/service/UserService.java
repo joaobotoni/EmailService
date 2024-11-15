@@ -30,14 +30,15 @@ public class UserService {
         return new UserDTO(user);
     }
 
-    @Transactional(readOnly = true)
+
     public void sendEmailTo(Long id){
         String to = findById(id).getEmail();
         try {
           service.sendMail(to, "Hi joao, this is just a test", "test test test");
           System.out.println("Email success");
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Failed to send email: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
