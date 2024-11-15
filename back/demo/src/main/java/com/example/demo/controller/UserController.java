@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
@@ -22,6 +22,11 @@ public class UserController {
     @GetMapping(value = "/{id}")
     public UserDTO findUserById(@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @PostMapping(value = "mail/{id}")
+    public void mail(@PathVariable Long id){
+        service.sendEmailTo(id);
     }
 
 }
