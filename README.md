@@ -1,4 +1,5 @@
 ### SMTP mail server settings
+<img src="https://img.shields.io/badge/-Spring%20Properties-333333?style=flat&logo=spring" alt="Spring Properties">
 
 ```yml
 spring.mail.host=smtp.mailtrap.io
@@ -9,7 +10,10 @@ spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 ```
 
-### Migration
+#
+
+### Migration 
+<img src="https://img.shields.io/badge/-PostgreSQL-333333?style=flat&logo=postgresql" alt="PostgreSQL">
 
 ```sql
 CREATE TABLE usuario(
@@ -19,3 +23,12 @@ email VARCHAR(100) NOT NULL UNIQUE,
 password VARCHAR(10) NOT null
 )
 ```
+
+### Technologies used
+#
+
+* Java
+* Spring boot
+* JPA/Hibernate
+* Java Mail Sander
+* Flyway Migration
